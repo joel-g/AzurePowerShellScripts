@@ -33,5 +33,3 @@ Set-AzureRmResource -PropertyObject $PropertiesObject `
                     -ResourceName $webAppName/web `
                     -ApiVersion 2015-08-01 `
                     -Force
-
-# Get app-level deployment credentials
