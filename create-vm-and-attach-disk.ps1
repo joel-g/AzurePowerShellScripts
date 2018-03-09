@@ -2,16 +2,20 @@
 # This link gives examples of the following script before the changes we made. See notes.
 # update obvious names to something that makes sense for the user
 
+$rgName = 'my_rg'
+$vmName = 'myVM'
+$location = 'East US'
+
 Login-AzureRmAccount
 
-New-AzureRmResourceGroup -Name $rgName -Location EastUS
+New-AzureRmResourceGroup -Name $rgName -Location $location
 
 New-AzureRmVm `
     -ResourceGroupName $rgName `
     -Name $vmName   `
     # Make sure to set this size rather than leaving to default
     -Size "Standard_B1S"   `
-    -Location "East US" `
+    -Location $location `
     -VirtualNetworkName "myVnet" `
     -SubnetName "mySubnet" `
     -SecurityGroupName "myNetworkSecurityGroup" `
@@ -20,8 +24,7 @@ New-AzureRmVm `
 
 #https://docs.microsoft.com/en-us/azure/virtual-machines/windows/attach-disk-ps
 # This link gives examples of the following script before the changes we made. See notes.
-
-$location = 'East US' 
+ 
 #Make sure to change from PremiumLRS to StandardLRS
 $storageType = 'StandardLRS'
 $dataDiskName = $vmName + '_datadisk1'
