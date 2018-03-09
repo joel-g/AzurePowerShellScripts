@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<publishData>
+  <publishProfile profileName="beandustesspresso - Web Deploy" publishMethod="MSDeploy" publishUrl="beandustesspresso.scm.azurewebsites.net:443" msdeploySite="beandustesspresso" userName="$beandustesspresso" userPWD="dejwwYPnHHQj8bqDZysT8ojhaFJy8jslqm8qw0lwNaDmEeo48FHBeLstu2qw" destinationAppUrl="http://beandustesspresso.azurewebsites.net" SQLServerDBConnectionString="" mySQLDBConnectionString="" hostingProviderForumLink="" controlPanelLink="http://windows.azure.com" webSystem="WebSites">
+    <databases />
+  </publishProfile>
+  <publishProfile profileName="beandustesspresso - FTP" publishMethod="FTP" publishUrl="ftp://waws-prod-mwh-013.ftp.azurewebsites.windows.net/site/wwwroot" ftpPassiveMode="True" userName="beandustesspresso\$beandustesspresso" userPWD="dejwwYPnHHQj8bqDZysT8ojhaFJy8jslqm8qw0lwNaDmEeo48FHBeLstu2qw" destinationAppUrl="http://beandustesspresso.azurewebsites.net" SQLServerDBConnectionString="" mySQLDBConnectionString="" hostingProviderForumLink="" controlPanelLink="http://windows.azure.com" webSystem="WebSites">
+    <databases />
+  </publishProfile>
+</publishData>

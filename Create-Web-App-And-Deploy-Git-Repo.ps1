@@ -1,6 +1,6 @@
-﻿$gitRepo = "<Path to local git repo>"
-$webAppName = "<name your web app>"
-$location = "westus2"
+﻿$gitRepo = "<github url goes here>"
+$webAppName = "<webapp name goes here>"
+$location = "<location goes here>"
 $resourceGroup = "<rg name goes here>"
 
 # Login
@@ -23,24 +23,13 @@ New-AzureRmWebApp -Name $webAppName `
 
 # Configure GitHub deployment from your GitHub repo and deploy once.
 $PropertiesObject = @{
-    scmType="LocalGit";
+    repoUrl = "$gitRepo";
+    branch = "master";
+    isManualIntegration = "true";
 }
 Set-AzureRmResource -PropertyObject $PropertiesObject `
                     -ResourceGroupName $resourceGroup `
-                    -ResourceType Microsoft.Web/sites/config `
+                    -ResourceType Microsoft.Web/sites/sourcecontrols `
                     -ResourceName $webAppName/web `
                     -ApiVersion 2015-08-01 `
                     -Force
-
-# Get app-level deployment credentials
-$xml = [xml](Get-AzureRmWebAppPublishingProfile -Name $webAppName `
-                                                -ResourceGroupName $resourceGroup `
-                                                -OutputFile null
-)
-$username = $xml.SelectNodes("//publishProfile[@publishMethod=`"MSDeploy`"]/@userName").value
-$password = $xml.SelectNodes("//publishProfile[@publishMethod=`"MSDeploy`"]/@userPWD").value
-
-# Add the Azure remote to you local Git repo and push your code
-#### This method saves your password in the git remote. You can use Git credential manager to secure your password instead.
-git remote add azure "https://${username}:$password@$webappName.scm.azurewebsites.net"
-git push azure master
