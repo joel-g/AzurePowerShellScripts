@@ -1,4 +1,4 @@
-﻿$gitRepo = "<Repo url goes here>"
+﻿$gitRepo = "<Path to local git repo>"
 $webAppName = "<name your web app>"
 $location = "westus2"
 $resourceGroup = "<rg name goes here>"
