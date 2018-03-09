@@ -29,7 +29,9 @@ $PropertiesObject = @{
 }
 Set-AzureRmResource -PropertyObject $PropertiesObject `
                     -ResourceGroupName $resourceGroup `
-                    -ResourceType Microsoft.Web/sites/sourcecontrols `
+                    -ResourceType Microsoft.Web/sites/source `
                     -ResourceName $webAppName/web `
                     -ApiVersion 2015-08-01 `
                     -Force
+
+# Get app-level deployment credentials
