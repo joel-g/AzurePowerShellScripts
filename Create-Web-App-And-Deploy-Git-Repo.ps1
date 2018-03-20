@@ -1,7 +1,7 @@
-﻿$gitRepo = "<github url goes here>"
-$webAppName = "<webapp name goes here>"
+﻿$gitRepo = "<repo url goes here>"
+$webAppName = "<web app name goes here>"
 $location = "<location goes here>"
-$resourceGroup = "<rg name goes here>"
+$resourceGroup = "<resource name goes here>"
 
 # Login
 Login-AzureRmAccount
@@ -29,7 +29,7 @@ $PropertiesObject = @{
 }
 Set-AzureRmResource -PropertyObject $PropertiesObject `
                     -ResourceGroupName $resourceGroup `
-                    -ResourceType Microsoft.Web/sites/source `
+                    -ResourceType Microsoft.Web/sites/sourcecontrols  `
                     -ResourceName $webAppName/web `
                     -ApiVersion 2015-08-01 `
                     -Force
